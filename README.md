@@ -1,2 +1,2 @@
 # Avia website
-Авиа веб сайт для бронирования билетов на рейсы, получения информации о рейсах и о бонусной программе
+Avia website for booking tickets for flights, getting information about flights and about the bonus program
