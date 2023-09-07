@@ -73,7 +73,10 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=bookings'
+        },
         'NAME': 'demo',
         'USER': 'postgres',
         'PASSWORD': 'admin',
