@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Hello, aviaweb!</h1>
-</body>
-</html>
+{% extends 'base_layout.html' %}
+{% load static from static %}
+{% block content %}
+<span class="navbar-item">
+    <form method="get" class="mt-4">
+        <div class="field has-addons">
+            <div class="control">
+                <input type="search" class="input" name="departure" placeholder="Откуда">
+                <input type="search" class="input" name="arrival" placeholder="Куда">
+                <input type="date" class="datetime" name="scheduled_departure" placeholder="Дата">
+{#                <input type="date" class="datetime" name="scheduled_arrival" placeholder="Дата обратно">#}
+            </div>
+            <div class="control">
+                <button class="button" type="submit">
+                    <ion-icon name="search-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+</span>
+{% endblock %}
