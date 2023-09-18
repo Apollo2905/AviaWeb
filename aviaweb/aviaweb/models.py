@@ -26,7 +26,7 @@ class Ticket(models.Model):
 
 
 class TicketFlight(models.Model):
-    ticket_no = models.ForeignKey(Ticket, on_delete=models.CASCADE, db_column='ticket_no', primary_key=True)
+    ticket_no = models.OneToOneField(Ticket, on_delete=models.CASCADE, db_column='ticket_no', primary_key=True)
     flight_id = models.IntegerField()
     fare_conditions = models.CharField(max_length=10)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
@@ -37,7 +37,7 @@ class TicketFlight(models.Model):
 
 
 class BoardingPass(models.Model):
-    ticket_no = models.ForeignKey(Ticket, on_delete=models.CASCADE, db_column='ticket_no', primary_key=True)
+    ticket_no = models.OneToOneField(Ticket, on_delete=models.CASCADE, db_column='ticket_no', primary_key=True)
     flight_id = models.ForeignKey('aviaweb.Flight', on_delete=models.CASCADE, db_column='flight_id')
     boarding_no = models.IntegerField()
     seat_no = models.CharField(max_length=4)

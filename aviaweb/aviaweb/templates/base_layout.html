@@ -1,0 +1,76 @@
+{% load static from static %}
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'static/bulma.css' %}">
+    <link rel="stylesheet" href="{% static 'static/style.css' %}">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+   
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="templates/home.html">
+                <img src="" width="112" height="28">
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <!-- {% csrf_token %} -->
+            <div class="navbar-end">
+                <!-- {% if user.is_authenticated %} -->
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-link">
+                        <!-- {{ user }} -->
+                    </div>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{% url 'users:edit_profile' %}">
+                            Редактировать <br>
+                            профиль
+                        </a>
+                        <a href="{% url 'users:reset_password' %}" class="navbar-item">
+                            Изменить пароль
+                        </a>
+                        <a href="" class="navbar-item">
+                            Избранное
+                        </a>
+                        <a href="{% url 'aviaweb:orders' %}" class="navbar-item">
+                            Мои заказы
+                        </a>
+                        <a class="navbar-item has-text-danger" href="{% url 'users:log_out' %}">
+                            Выйти
+                        </a>
+                    </div>
+                </div>
+                <!-- {% else %} -->
+                <a class="navbar-item" href="{% url 'users:log_in' %}">
+                    <button class="button">Войти</button>
+                </a>
+                <!-- {% endif %} -->
+                <a class="navbar-item has-text-info is-size-3" href="">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span class="is-size-6">
+                        {{ amount }}
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- {% block auth %}
+    {% endblock %} -->
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+
+    
+</body>
+</html>
+
